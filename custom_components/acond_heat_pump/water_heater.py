@@ -32,7 +32,7 @@ class AcondWaterHeater(AcondEntity, WaterHeaterEntity):
     _attr_supported_features = WaterHeaterEntityFeature.TARGET_TEMPERATURE
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_min_temp = 10.0
-    _attr_max_temp = 46.0
+    _attr_max_temp = 50.0
     _attr_precision = 0.5
     _attr_translation_key = "dhw"
 
