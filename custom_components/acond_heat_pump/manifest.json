@@ -1,0 +1,10 @@
+{
+  "domain": "acond_heat_pump",
+  "name": "Acond Heat Pump",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://github.com/jbires/acond-heat-pump-ha",
+  "iot_class": "local_polling",
+  "requirements": ["acond-heat-pump==1.2.0"],
+  "version": "1.0.0"
+}

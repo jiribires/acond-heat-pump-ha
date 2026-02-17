@@ -1,0 +1,151 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Acond Heat Pump",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "name": "Name"
+        },
+        "data_description": {
+          "host": "IP address of the heat pump",
+          "port": "Modbus TCP port (default: 502)",
+          "name": "Name for the device"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the heat pump",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This heat pump is already configured"
+    }
+  },
+  "entity": {
+    "climate": {
+      "circuit1": {
+        "name": "Circuit I"
+      },
+      "circuit2": {
+        "name": "Circuit II"
+      }
+    },
+    "water_heater": {
+      "dhw": {
+        "name": "Boiler"
+      }
+    },
+    "number": {
+      "water_back_temperature": {
+        "name": "Water Back Temperature"
+      },
+      "pool_temperature_setpoint": {
+        "name": "Pool Temperature Setpoint"
+      },
+      "water_cool_temperature": {
+        "name": "Cooling Water Temperature"
+      }
+    },
+    "select": {
+      "regime": {
+        "name": "Regime"
+      },
+      "regulation": {
+        "name": "Regulation"
+      },
+      "operation": {
+        "name": "Operation"
+      }
+    },
+    "sensor": {
+      "outdoor_temperature": {
+        "name": "Outdoor Temperature"
+      },
+      "return_water_temperature": {
+        "name": "Return Water Temperature"
+      },
+      "return_water_setpoint": {
+        "name": "Return Water Setpoint"
+      },
+      "brine_temperature": {
+        "name": "Brine Temperature"
+      },
+      "indoor2_temperature": {
+        "name": "Indoor Temperature Circuit II"
+      },
+      "solar_temperature": {
+        "name": "Solar Temperature"
+      },
+      "pool_temperature": {
+        "name": "Pool Temperature"
+      },
+      "pool_setpoint": {
+        "name": "Pool Setpoint"
+      },
+      "water_outlet_temperature": {
+        "name": "Water Outlet Temperature"
+      },
+      "water_outlet_setpoint": {
+        "name": "Water Outlet Setpoint"
+      },
+      "compressor_power": {
+        "name": "Compressor Power"
+      },
+      "compressor_power_max": {
+        "name": "Compressor Max Power"
+      },
+      "error_code": {
+        "name": "Error Code"
+      },
+      "error_code_secmono": {
+        "name": "Error Code SECMono"
+      },
+      "error_code_driver": {
+        "name": "Error Code Driver"
+      }
+    },
+    "binary_sensor": {
+      "running": {
+        "name": "Running"
+      },
+      "fault": {
+        "name": "Fault"
+      },
+      "defrost": {
+        "name": "Defrost"
+      },
+      "dhw_heating": {
+        "name": "DHW Heating"
+      },
+      "pump_circuit1": {
+        "name": "Pump Circuit I"
+      },
+      "summer_mode": {
+        "name": "Summer Mode"
+      },
+      "power": {
+        "name": "Power"
+      },
+      "pump_circuit2": {
+        "name": "Pump Circuit II"
+      },
+      "solar_pump": {
+        "name": "Solar Pump"
+      },
+      "pool_pump": {
+        "name": "Pool Pump"
+      },
+      "bivalence_running": {
+        "name": "Bivalence Running"
+      },
+      "brine_pump": {
+        "name": "Brine Pump"
+      },
+      "cooling_running": {
+        "name": "Cooling Running"
+      }
+    }
+  }
+}
