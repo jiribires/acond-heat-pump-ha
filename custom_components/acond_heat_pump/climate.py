@@ -58,7 +58,7 @@ class AcondClimate(AcondEntity, ClimateEntity):
 
     _attr_hvac_modes = [HVACMode.AUTO, HVACMode.HEAT, HVACMode.COOL, HVACMode.OFF]
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
-    _attr_target_temperature_step = 0.5
+    _attr_target_temperature_step = 0.1
     _attr_min_temp = 10.0
     _attr_max_temp = 30.0
     _attr_translation_key = "circuit1"
@@ -133,7 +133,7 @@ class AcondClimateCircuit2(AcondEntity, ClimateEntity):
 
     _attr_hvac_modes = [HVACMode.AUTO, HVACMode.HEAT, HVACMode.COOL, HVACMode.OFF]
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
-    _attr_target_temperature_step = 0.5
+    _attr_target_temperature_step = 0.1
     _attr_min_temp = 10.0
     _attr_max_temp = 30.0
     _attr_translation_key = "circuit2"

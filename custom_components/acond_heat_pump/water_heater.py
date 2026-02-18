@@ -33,7 +33,7 @@ class AcondWaterHeater(AcondEntity, WaterHeaterEntity):
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_min_temp = 10.0
     _attr_max_temp = 50.0
-    _attr_precision = 0.5
+    _attr_precision = 0.1
     _attr_translation_key = "dhw"
 
     def __init__(self, coordinator: AcondCoordinator, entry_id: str) -> None:
