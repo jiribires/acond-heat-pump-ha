@@ -32,6 +32,7 @@ async def async_setup_entry(
 class AcondWaterBackTemperature(AcondEntity, NumberEntity):
     """Representation of the water back temperature setpoint."""
 
+    _attr_icon = "mdi:thermometer-water"
     _attr_device_class = NumberDeviceClass.TEMPERATURE
     _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_native_min_value = 10.0
@@ -61,6 +62,7 @@ class AcondWaterBackTemperature(AcondEntity, NumberEntity):
 class AcondPoolTemperature(AcondEntity, NumberEntity):
     """Representation of the pool temperature setpoint."""
 
+    _attr_icon = "mdi:pool-thermometer"
     _attr_device_class = NumberDeviceClass.TEMPERATURE
     _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_native_min_value = 10.0
@@ -90,6 +92,7 @@ class AcondPoolTemperature(AcondEntity, NumberEntity):
 class AcondWaterCoolTemperature(AcondEntity, NumberEntity):
     """Representation of the water cooling outlet temperature setpoint."""
 
+    _attr_icon = "mdi:snowflake-thermometer"
     _attr_device_class = NumberDeviceClass.TEMPERATURE
     _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_native_min_value = 15.0

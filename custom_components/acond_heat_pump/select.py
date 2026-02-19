@@ -38,6 +38,7 @@ async def async_setup_entry(
 class AcondRegimeSelect(AcondEntity, SelectEntity):
     """Select entity for heat pump regime (operating mode)."""
 
+    _attr_icon = "mdi:heat-pump"
     _attr_translation_key = "regime"
     _attr_options = list(HEAT_PUMP_MODE_NAMES.values())
 
@@ -65,6 +66,7 @@ class AcondRegimeSelect(AcondEntity, SelectEntity):
 class AcondRegulationSelect(AcondEntity, SelectEntity):
     """Select entity for regulation mode."""
 
+    _attr_icon = "mdi:tune"
     _attr_translation_key = "regulation"
     _attr_options = list(REGULATION_MODE_NAMES.values())
 
@@ -92,6 +94,7 @@ class AcondRegulationSelect(AcondEntity, SelectEntity):
 class AcondOperationSelect(AcondEntity, SelectEntity):
     """Select entity for operation mode (Winter/Summer)."""
 
+    _attr_icon = "mdi:sun-snowflake-variant"
     _attr_translation_key = "operation"
     _attr_options = OPERATION_MODE_OPTIONS
 

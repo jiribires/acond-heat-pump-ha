@@ -29,6 +29,7 @@ async def async_setup_entry(
 class AcondWaterHeater(AcondEntity, WaterHeaterEntity):
     """Representation of the Acond heat pump boiler/DHW."""
 
+    _attr_icon = "mdi:water-boiler"
     _attr_supported_features = WaterHeaterEntityFeature.TARGET_TEMPERATURE
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
     _attr_min_temp = 10.0
