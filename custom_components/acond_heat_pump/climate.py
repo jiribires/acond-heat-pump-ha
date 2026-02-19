@@ -61,6 +61,7 @@ class AcondClimate(AcondEntity, ClimateEntity):
     _attr_target_temperature_step = 0.1
     _attr_min_temp = 10.0
     _attr_max_temp = 30.0
+    _attr_icon = "mdi:heat-pump-outline"
     _attr_translation_key = "circuit1"
     _enable_turn_on_off_backwards_compatibility = False
 
@@ -136,6 +137,7 @@ class AcondClimateCircuit2(AcondEntity, ClimateEntity):
     _attr_target_temperature_step = 0.1
     _attr_min_temp = 10.0
     _attr_max_temp = 30.0
+    _attr_icon = "mdi:heat-pump-outline"
     _attr_translation_key = "circuit2"
     _enable_turn_on_off_backwards_compatibility = False
 

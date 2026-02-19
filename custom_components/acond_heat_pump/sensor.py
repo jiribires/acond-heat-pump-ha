@@ -34,6 +34,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="outdoor_temperature",
         translation_key="outdoor_temperature",
+        icon="mdi:sun-thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -42,6 +43,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="return_water_temperature",
         translation_key="return_water_temperature",
+        icon="mdi:thermometer-water",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -50,6 +52,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="return_water_setpoint",
         translation_key="return_water_setpoint",
+        icon="mdi:thermometer-water",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -58,6 +61,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="brine_temperature",
         translation_key="brine_temperature",
+        icon="mdi:thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -66,6 +70,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="indoor2_temperature",
         translation_key="indoor2_temperature",
+        icon="mdi:home-thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -74,6 +79,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="solar_temperature",
         translation_key="solar_temperature",
+        icon="mdi:solar-power",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -82,6 +88,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="pool_temperature",
         translation_key="pool_temperature",
+        icon="mdi:pool-thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -90,6 +97,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="pool_setpoint",
         translation_key="pool_setpoint",
+        icon="mdi:pool-thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -98,6 +106,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="water_outlet_temperature",
         translation_key="water_outlet_temperature",
+        icon="mdi:snowflake-thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -106,6 +115,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="water_outlet_setpoint",
         translation_key="water_outlet_setpoint",
+        icon="mdi:snowflake-thermometer",
         device_class=SensorDeviceClass.TEMPERATURE,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -114,6 +124,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="compressor_power",
         translation_key="compressor_power",
+        icon="mdi:lightning-bolt",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -123,6 +134,7 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="compressor_power_max",
         translation_key="compressor_power_max",
+        icon="mdi:lightning-bolt",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -132,18 +144,21 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
     AcondSensorEntityDescription(
         key="error_code",
         translation_key="error_code",
+        icon="mdi:alert-circle",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.err_number,
     ),
     AcondSensorEntityDescription(
         key="error_code_secmono",
         translation_key="error_code_secmono",
+        icon="mdi:alert-circle",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.err_number_SECMono,
     ),
     AcondSensorEntityDescription(
         key="error_code_driver",
         translation_key="error_code_driver",
+        icon="mdi:alert-circle",
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.err_number_driver,
     ),
