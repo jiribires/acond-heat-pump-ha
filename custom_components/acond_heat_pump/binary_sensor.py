@@ -54,7 +54,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[AcondBinarySensorEntityDescription, ...] = (
         key="dhw_heating",
         translation_key="dhw_heating",
         icon="mdi:water-boiler",
-        device_class=BinarySensorDeviceClass.HEAT,
+        device_class=BinarySensorDeviceClass.RUNNING,
         value_fn=lambda status: status.heating_dhw,
     ),
     AcondBinarySensorEntityDescription(
