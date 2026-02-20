@@ -13,7 +13,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 
 _LOGGER = logging.getLogger(__name__)
 
-SCAN_INTERVAL = timedelta(seconds=60)
+SCAN_INTERVAL = timedelta(seconds=30)
 
 
 class AcondCoordinator(DataUpdateCoordinator[HeatPumpResponse]):
@@ -35,9 +35,17 @@ class AcondCoordinator(DataUpdateCoordinator[HeatPumpResponse]):
         )
         self.client = client
 
+    def _sync_read(self) -> HeatPumpResponse:
+        """Reconnect and read data (runs in executor)."""
+        self.client.close()
+        self.client.connect()
+        return self.client.read_data()
+
     async def _async_update_data(self) -> HeatPumpResponse:
         """Fetch data from the heat pump."""
         try:
-            return await self.hass.async_add_executor_job(self.client.read_data)
+            return await self.hass.async_add_executor_job(self._sync_read)
         except HeatPumpConnectionError as err:
+            raise UpdateFailed(f"Error communicating with heat pump: {err}") from err
+        except Exception as err:
             raise UpdateFailed(f"Error communicating with heat pump: {err}") from err

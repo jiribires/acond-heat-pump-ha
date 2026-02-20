@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1] - 2026-02-20
+
+### Fixed
+- Reconnect Modbus TCP before each poll to prevent stale connection errors
+- Catch all connection exceptions (including pymodbus `ConnectionException`)
+
+### Changed
+- Reduce polling interval from 60s to 30s
+
 ## [1.1.0] - 2026-02-20
 
 ### Added
