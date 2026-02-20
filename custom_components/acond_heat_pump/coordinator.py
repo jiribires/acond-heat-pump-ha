@@ -8,8 +8,11 @@ import logging
 from acond_heat_pump import AcondHeatPump, HeatPumpConnectionError, HeatPumpResponse
 
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+
+from .const import DEFAULT_PORT
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -35,11 +38,29 @@ class AcondCoordinator(DataUpdateCoordinator[HeatPumpResponse]):
         )
         self.client = client
 
+    def _reconnect(self) -> None:
+        """Create a fresh client and connect."""
+        try:
+            self.client.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+        host = self.config_entry.data[CONF_HOST]
+        port = self.config_entry.data.get(CONF_PORT, DEFAULT_PORT)
+        self.client = AcondHeatPump(host, port)
+
+        if not self.client.connect():
+            raise HeatPumpConnectionError(
+                f"Could not connect to heat pump at {host}:{port}"
+            )
+
     def _sync_read(self) -> HeatPumpResponse:
-        """Reconnect and read data (runs in executor)."""
-        self.client.close()
-        self.client.connect()
-        return self.client.read_data()
+        """Read data, reconnecting only on failure (runs in executor)."""
+        try:
+            return self.client.read_data()
+        except Exception:
+            self._reconnect()
+            return self.client.read_data()
 
     async def _async_update_data(self) -> HeatPumpResponse:
         """Fetch data from the heat pump."""
