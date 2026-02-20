@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.2] - 2026-02-20
+
+### Fixed
+- Connection not recovering after Modbus TCP failure ("Connection reset by peer") — entities stayed N/A until HA restart
+- Keep persistent connection for normal polls, only recreate client on actual failure
+
 ## [1.1.1] - 2026-02-20
 
 ### Fixed
