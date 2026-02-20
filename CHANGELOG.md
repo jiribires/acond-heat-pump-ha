@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0] - 2026-02-20
+
+### Added
+- Czech (cs) translations using official Acond Modbus documentation terminology
+- DHW temperature sensor (`dhw_temperature`)
+- DHW temperature setpoint number entity (`dhw_temperature_setpoint`)
+
+### Changed
+- Replace water_heater entity with number + sensor entities for DHW control
+- Select options (regime, regulation, operation) now use translatable state keys
+- Fix DHW heating binary sensor device class from `HEAT` to `RUNNING`
+
+### Removed
+- Water heater platform (`water_heater.py`)
+
 ## [1.0.4] - 2026-02-19
 
 ### Added

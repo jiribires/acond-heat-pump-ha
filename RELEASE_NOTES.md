@@ -1,1 +1,0 @@
-Release v1.0.4 created on 2026-02-19.

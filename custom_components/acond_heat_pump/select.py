@@ -8,11 +8,11 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from . import AcondConfigEntry
 from .const import (
-    HEAT_PUMP_MODE_BY_NAME,
-    HEAT_PUMP_MODE_NAMES,
+    HEAT_PUMP_MODE_BY_KEY,
+    HEAT_PUMP_MODE_KEYS,
     OPERATION_MODE_OPTIONS,
-    REGULATION_MODE_BY_NAME,
-    REGULATION_MODE_NAMES,
+    REGULATION_MODE_BY_KEY,
+    REGULATION_MODE_KEYS,
 )
 from .coordinator import AcondCoordinator
 from .entity import AcondEntity
@@ -40,7 +40,7 @@ class AcondRegimeSelect(AcondEntity, SelectEntity):
 
     _attr_icon = "mdi:heat-pump"
     _attr_translation_key = "regime"
-    _attr_options = list(HEAT_PUMP_MODE_NAMES.values())
+    _attr_options = list(HEAT_PUMP_MODE_KEYS.values())
 
     def __init__(self, coordinator: AcondCoordinator, entry_id: str) -> None:
         """Initialize the regime select."""
@@ -51,11 +51,11 @@ class AcondRegimeSelect(AcondEntity, SelectEntity):
     def current_option(self) -> str | None:
         """Return the current regime."""
         mode = self.coordinator.data.heat_pump_mode
-        return HEAT_PUMP_MODE_NAMES.get(mode)
+        return HEAT_PUMP_MODE_KEYS.get(mode)
 
     async def async_select_option(self, option: str) -> None:
         """Set the regime."""
-        if (mode := HEAT_PUMP_MODE_BY_NAME.get(option)) is None:
+        if (mode := HEAT_PUMP_MODE_BY_KEY.get(option)) is None:
             return
         await self.hass.async_add_executor_job(
             self.coordinator.client.change_setting, mode
@@ -68,7 +68,7 @@ class AcondRegulationSelect(AcondEntity, SelectEntity):
 
     _attr_icon = "mdi:tune"
     _attr_translation_key = "regulation"
-    _attr_options = list(REGULATION_MODE_NAMES.values())
+    _attr_options = list(REGULATION_MODE_KEYS.values())
 
     def __init__(self, coordinator: AcondCoordinator, entry_id: str) -> None:
         """Initialize the regulation select."""
@@ -79,11 +79,11 @@ class AcondRegulationSelect(AcondEntity, SelectEntity):
     def current_option(self) -> str | None:
         """Return the current regulation mode."""
         mode = self.coordinator.data.regulation_mode
-        return REGULATION_MODE_NAMES.get(mode)
+        return REGULATION_MODE_KEYS.get(mode)
 
     async def async_select_option(self, option: str) -> None:
         """Set the regulation mode."""
-        if (mode := REGULATION_MODE_BY_NAME.get(option)) is None:
+        if (mode := REGULATION_MODE_BY_KEY.get(option)) is None:
             return
         await self.hass.async_add_executor_job(
             self.coordinator.client.set_regulation_mode, mode
@@ -107,12 +107,12 @@ class AcondOperationSelect(AcondEntity, SelectEntity):
     def current_option(self) -> str | None:
         """Return the current operation mode."""
         if self.coordinator.data.status.summer_mode:
-            return "Summer"
-        return "Winter"
+            return "summer"
+        return "winter"
 
     async def async_select_option(self, option: str) -> None:
         """Set the operation mode."""
-        summer = option == "Summer"
+        summer = option == "summer"
         await self.hass.async_add_executor_job(
             self.coordinator.client.set_summer_mode, summer
         )

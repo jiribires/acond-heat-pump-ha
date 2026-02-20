@@ -162,6 +162,15 @@ SENSOR_DESCRIPTIONS: tuple[AcondSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda data: data.err_number_driver,
     ),
+    AcondSensorEntityDescription(
+        key="dhw_temperature",
+        translation_key="dhw_temperature",
+        icon="mdi:water-boiler",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        value_fn=lambda data: data.dhw_temp_actual,
+    ),
 )
 
 

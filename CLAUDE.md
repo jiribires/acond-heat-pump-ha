@@ -12,10 +12,9 @@ custom_components/acond_heat_pump/
   coordinator.py     # AcondCoordinator — polls read_data() every 60s
   entity.py          # AcondEntity base class (CoordinatorEntity)
   climate.py         # Circuit I + Circuit II climate entities
-  water_heater.py    # Boiler (DHW) entity
-  sensor.py          # 15 sensors via description pattern (AcondSensorEntityDescription)
+  sensor.py          # 16 sensors via description pattern (AcondSensorEntityDescription)
   binary_sensor.py   # 13 binary sensors via description pattern
-  number.py          # 3 number entities (water back, pool, cooling setpoints)
+  number.py          # 4 number entities (water back, pool, cooling, DHW setpoints)
   select.py          # 3 selects (regime, regulation, operation)
   strings.json       # Translation keys for all entities + config flow
   translations/en.json  # Must mirror strings.json exactly
@@ -30,15 +29,14 @@ hacs.json            # HACS metadata
 - **Synchronous library**: all `client.*` calls must be wrapped in `hass.async_add_executor_job()`
 - **ConfigEntryNotReady**: raised on connection failure so HA retries automatically
 
-## Entity Counts (37 total)
+## Entity Counts (38 total)
 
 | Platform | Count | File |
 |----------|-------|------|
 | Climate | 2 | `climate.py` — Circuit I, Circuit II |
-| Water Heater | 1 | `water_heater.py` — Boiler (DHW) |
-| Sensor | 15 | `sensor.py` — temps, compressor power, error codes |
+| Sensor | 16 | `sensor.py` — temps, compressor power, error codes, DHW temp |
 | Binary Sensor | 13 | `binary_sensor.py` — status bits |
-| Number | 3 | `number.py` — water back, pool, cooling setpoints |
+| Number | 4 | `number.py` — water back, pool, cooling, DHW setpoints |
 | Select | 3 | `select.py` — regime, regulation, operation |
 
 ## Key Patterns

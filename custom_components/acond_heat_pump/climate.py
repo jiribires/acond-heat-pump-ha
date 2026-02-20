@@ -17,7 +17,6 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from . import AcondConfigEntry
-from .const import HEAT_PUMP_MODE_NAMES
 from .coordinator import AcondCoordinator
 from .entity import AcondEntity
 

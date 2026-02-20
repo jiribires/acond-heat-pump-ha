@@ -32,11 +32,6 @@
         "name": "Circuit II"
       }
     },
-    "water_heater": {
-      "dhw": {
-        "name": "Boiler"
-      }
-    },
     "number": {
       "water_back_temperature": {
         "name": "Water Back Temperature"
@@ -46,17 +41,36 @@
       },
       "water_cool_temperature": {
         "name": "Cooling Water Temperature"
+      },
+      "dhw_temperature_setpoint": {
+        "name": "Boiler Temperature Setpoint"
       }
     },
     "select": {
       "regime": {
-        "name": "Regime"
+        "name": "Regime",
+        "state": {
+          "automatic": "Automatic",
+          "heat_pump": "Heat Pump",
+          "bivalency_source": "Bivalency Source",
+          "cooling": "Cooling",
+          "off": "Off"
+        }
       },
       "regulation": {
-        "name": "Regulation"
+        "name": "Regulation",
+        "state": {
+          "smart_therm": "SmartTherm",
+          "ekviterm": "Ekviterm",
+          "standard": "Standard"
+        }
       },
       "operation": {
-        "name": "Operation"
+        "name": "Operation",
+        "state": {
+          "winter": "Winter",
+          "summer": "Summer"
+        }
       }
     },
     "sensor": {
@@ -104,6 +118,9 @@
       },
       "error_code_driver": {
         "name": "Error Code Driver"
+      },
+      "dhw_temperature": {
+        "name": "Boiler Temperature"
       }
     },
     "binary_sensor": {

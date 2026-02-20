@@ -1,0 +1,168 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tepelné čerpadlo Acond",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "name": "Název"
+        },
+        "data_description": {
+          "host": "IP adresa tepelného čerpadla",
+          "port": "Modbus TCP port (výchozí: 502)",
+          "name": "Název zařízení"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nepodařilo se připojit k tepelnému čerpadlu",
+      "unknown": "Neočekávaná chyba"
+    },
+    "abort": {
+      "already_configured": "Toto tepelné čerpadlo je již nakonfigurováno"
+    }
+  },
+  "entity": {
+    "climate": {
+      "circuit1": {
+        "name": "Okruh I"
+      },
+      "circuit2": {
+        "name": "Okruh II"
+      }
+    },
+    "number": {
+      "water_back_temperature": {
+        "name": "Požadovaná teplota zpátečky"
+      },
+      "pool_temperature_setpoint": {
+        "name": "Požadovaná teplota bazénu"
+      },
+      "water_cool_temperature": {
+        "name": "Požadovaná teplota chlazení"
+      },
+      "dhw_temperature_setpoint": {
+        "name": "Požadovaná teplota TUV"
+      }
+    },
+    "select": {
+      "regime": {
+        "name": "Režim",
+        "state": {
+          "automatic": "Automatický",
+          "heat_pump": "Jen TČ",
+          "bivalency_source": "Jen bivalence",
+          "cooling": "Chlazení",
+          "off": "Vypnuto"
+        }
+      },
+      "regulation": {
+        "name": "Regulace",
+        "state": {
+          "smart_therm": "AcondTherm",
+          "ekviterm": "Ekviterm",
+          "standard": "Standard"
+        }
+      },
+      "operation": {
+        "name": "Provoz",
+        "state": {
+          "winter": "Zima",
+          "summer": "Léto"
+        }
+      }
+    },
+    "sensor": {
+      "outdoor_temperature": {
+        "name": "Venkovní teplota"
+      },
+      "return_water_temperature": {
+        "name": "Teplota zpátečky"
+      },
+      "return_water_setpoint": {
+        "name": "Požadovaná teplota zpátečky"
+      },
+      "brine_temperature": {
+        "name": "Teplota solanky"
+      },
+      "indoor2_temperature": {
+        "name": "Teplota v místnosti okruh II"
+      },
+      "solar_temperature": {
+        "name": "Teplota soláru"
+      },
+      "pool_temperature": {
+        "name": "Teplota bazénu"
+      },
+      "pool_setpoint": {
+        "name": "Požadovaná teplota bazénu"
+      },
+      "water_outlet_temperature": {
+        "name": "Teplota výstupní vody"
+      },
+      "water_outlet_setpoint": {
+        "name": "Požadovaná teplota výstupní vody"
+      },
+      "compressor_power": {
+        "name": "Aktuální výkon TČ"
+      },
+      "compressor_power_max": {
+        "name": "Maximální výkon TČ"
+      },
+      "error_code": {
+        "name": "Kód chyby"
+      },
+      "error_code_secmono": {
+        "name": "Kód chyby SECMono"
+      },
+      "error_code_driver": {
+        "name": "Kód chyby driver"
+      },
+      "dhw_temperature": {
+        "name": "Teplota TUV"
+      }
+    },
+    "binary_sensor": {
+      "running": {
+        "name": "V provozu"
+      },
+      "fault": {
+        "name": "Porucha"
+      },
+      "defrost": {
+        "name": "Odmrazení"
+      },
+      "dhw_heating": {
+        "name": "Ohřev TUV"
+      },
+      "pump_circuit1": {
+        "name": "Oběhové čerpadlo okruh I"
+      },
+      "summer_mode": {
+        "name": "Letní provoz"
+      },
+      "power": {
+        "name": "TČ zapnuto"
+      },
+      "pump_circuit2": {
+        "name": "Oběhové čerpadlo okruh II"
+      },
+      "solar_pump": {
+        "name": "Oběhové čerpadlo soláru"
+      },
+      "pool_pump": {
+        "name": "Oběhové čerpadlo bazénu"
+      },
+      "bivalence_running": {
+        "name": "Bivalence v provozu"
+      },
+      "brine_pump": {
+        "name": "Oběhové čerpadlo solanky"
+      },
+      "cooling_running": {
+        "name": "Chlazení v provozu"
+      }
+    }
+  }
+}

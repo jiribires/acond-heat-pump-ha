@@ -13,33 +13,32 @@ PLATFORMS: list[Platform] = [
     Platform.NUMBER,
     Platform.SELECT,
     Platform.SENSOR,
-    Platform.WATER_HEATER,
 ]
 
-# HeatPumpMode -> UI display name
-HEAT_PUMP_MODE_NAMES: dict[HeatPumpMode, str] = {
-    HeatPumpMode.AUTOMATIC: "Automatic",
-    HeatPumpMode.HEAT_PUMP_ONLY: "Heat Pump",
-    HeatPumpMode.BIVALENT_ONLY: "Bivalency Source",
-    HeatPumpMode.COOLING: "Cooling",
-    HeatPumpMode.OFF: "Off",
+# HeatPumpMode -> translation key
+HEAT_PUMP_MODE_KEYS: dict[HeatPumpMode, str] = {
+    HeatPumpMode.AUTOMATIC: "automatic",
+    HeatPumpMode.HEAT_PUMP_ONLY: "heat_pump",
+    HeatPumpMode.BIVALENT_ONLY: "bivalency_source",
+    HeatPumpMode.COOLING: "cooling",
+    HeatPumpMode.OFF: "off",
 }
 
-# UI display name -> HeatPumpMode (reverse lookup)
-HEAT_PUMP_MODE_BY_NAME: dict[str, HeatPumpMode] = {
-    v: k for k, v in HEAT_PUMP_MODE_NAMES.items()
+# Translation key -> HeatPumpMode (reverse lookup)
+HEAT_PUMP_MODE_BY_KEY: dict[str, HeatPumpMode] = {
+    v: k for k, v in HEAT_PUMP_MODE_KEYS.items()
 }
 
-# RegulationMode -> UI display name
-REGULATION_MODE_NAMES: dict[RegulationMode, str] = {
-    RegulationMode.ACOND_THERM: "SmartTherm",
-    RegulationMode.EQUITHERMAL: "Ekviterm",
-    RegulationMode.MANUAL: "Standard",
+# RegulationMode -> translation key
+REGULATION_MODE_KEYS: dict[RegulationMode, str] = {
+    RegulationMode.ACOND_THERM: "smart_therm",
+    RegulationMode.EQUITHERMAL: "ekviterm",
+    RegulationMode.MANUAL: "standard",
 }
 
-# UI display name -> RegulationMode (reverse lookup)
-REGULATION_MODE_BY_NAME: dict[str, RegulationMode] = {
-    v: k for k, v in REGULATION_MODE_NAMES.items()
+# Translation key -> RegulationMode (reverse lookup)
+REGULATION_MODE_BY_KEY: dict[str, RegulationMode] = {
+    v: k for k, v in REGULATION_MODE_KEYS.items()
 }
 
-OPERATION_MODE_OPTIONS: list[str] = ["Winter", "Summer"]
+OPERATION_MODE_OPTIONS: list[str] = ["winter", "summer"]
