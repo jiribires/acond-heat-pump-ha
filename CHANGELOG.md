@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.3] - 2026-05-17
+
+### Fixed
+- Operation select (summer/winter) now actually switches the heat pump — root cause was a library bug where `set_summer_mode` wrote to the wrong bit so the device silently ignored the change. Fixed upstream in `acond-heat-pump` 1.3.0.
+- Select entities (regime, regulation, operation) now surface failures: when the underlying library returns `False` (Modbus write rejected), the service call raises `HomeAssistantError` instead of silently appearing to succeed. Adds debug logging of attempted option changes.
+
+### Changed
+- Bump `acond-heat-pump` dependency to 1.3.0.
+
 ## [1.1.2] - 2026-02-20
 
 ### Fixed

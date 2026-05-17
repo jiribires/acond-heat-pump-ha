@@ -2,8 +2,11 @@
 
 from __future__ import annotations
 
+import logging
+
 from homeassistant.components.select import SelectEntity
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from . import AcondConfigEntry
@@ -16,6 +19,8 @@ from .const import (
 )
 from .coordinator import AcondCoordinator
 from .entity import AcondEntity
+
+_LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(
@@ -56,10 +61,15 @@ class AcondRegimeSelect(AcondEntity, SelectEntity):
     async def async_select_option(self, option: str) -> None:
         """Set the regime."""
         if (mode := HEAT_PUMP_MODE_BY_KEY.get(option)) is None:
-            return
-        await self.hass.async_add_executor_job(
+            raise HomeAssistantError(f"Unknown regime option: {option}")
+        _LOGGER.debug("Setting regime to %s", option)
+        success = await self.hass.async_add_executor_job(
             self.coordinator.client.change_setting, mode
         )
+        if not success:
+            raise HomeAssistantError(
+                f"Heat pump rejected regime change to {option}"
+            )
         await self.coordinator.async_request_refresh()
 
 
@@ -84,10 +94,15 @@ class AcondRegulationSelect(AcondEntity, SelectEntity):
     async def async_select_option(self, option: str) -> None:
         """Set the regulation mode."""
         if (mode := REGULATION_MODE_BY_KEY.get(option)) is None:
-            return
-        await self.hass.async_add_executor_job(
+            raise HomeAssistantError(f"Unknown regulation option: {option}")
+        _LOGGER.debug("Setting regulation mode to %s", option)
+        success = await self.hass.async_add_executor_job(
             self.coordinator.client.set_regulation_mode, mode
         )
+        if not success:
+            raise HomeAssistantError(
+                f"Heat pump rejected regulation change to {option}"
+            )
         await self.coordinator.async_request_refresh()
 
 
@@ -112,8 +127,15 @@ class AcondOperationSelect(AcondEntity, SelectEntity):
 
     async def async_select_option(self, option: str) -> None:
         """Set the operation mode."""
+        if option not in OPERATION_MODE_OPTIONS:
+            raise HomeAssistantError(f"Unknown operation option: {option}")
         summer = option == "summer"
-        await self.hass.async_add_executor_job(
+        _LOGGER.debug("Setting operation mode to %s", option)
+        success = await self.hass.async_add_executor_job(
             self.coordinator.client.set_summer_mode, summer
         )
+        if not success:
+            raise HomeAssistantError(
+                f"Heat pump rejected operation change to {option}"
+            )
         await self.coordinator.async_request_refresh()
